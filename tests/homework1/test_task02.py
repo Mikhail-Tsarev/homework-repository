@@ -1,5 +1,7 @@
-from homework0.task02 import another_function
+import pytest
+
+from homework1.task02 import check_fibonacci
 
 
-def test_another_function():
+def test_check_fibonacci():
     assert another_function() == "OK"
