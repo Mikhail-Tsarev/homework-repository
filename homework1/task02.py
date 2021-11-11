@@ -4,8 +4,26 @@ Given a cell with "it's a fib sequence" from slideshow,
     returns if the given sequence is a Fibonacci sequence
 We guarantee, that the given sequence contain >= 0 integers inside.
 """
+import math
 from typing import Sequence
 
 
 def check_fibonacci(data: Sequence[int]) -> bool:
-    pass
+    def is_fib_num(n: int) -> bool:
+        """Check if number is a Fib number"""
+        phi = 0.5 + 0.5 * math.sqrt(5.0)
+        a = phi * n
+        return n == 0 or abs(round(a) - a) < 1.0 / n
+
+    if len(data) < 3:
+        return False
+
+    # Check if the first and the second ints in a sequence are fib numbers, because if not we no need to continue
+    if not is_fib_num(data[0]) or not is_fib_num(data[1]):
+        return False
+
+    while len(data) > 2:
+        if not (data[0] + data[1] == data[2]):
+            return False
+        data = data[1:]
+    return True
