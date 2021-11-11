@@ -30,4 +30,4 @@ def test_real_fib_seq_case_list():
 
 def test_real_fib_seq_case_tuple():
     """Testing real fib sequence tuple returns True"""
-    assert check_fibonacci((0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89))
+    assert check_fibonacci((3, 5, 8, 13, 21, 34, 55, 89))

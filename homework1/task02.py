@@ -4,15 +4,14 @@ Given a cell with "it's a fib sequence" from slideshow,
     returns if the given sequence is a Fibonacci sequence
 We guarantee, that the given sequence contain >= 0 integers inside.
 """
-import math
+from math import sqrt
 from typing import Sequence
 
 
 def check_fibonacci(data: Sequence[int]) -> bool:
     def is_fib_num(n: int) -> bool:
         """Check if number is a Fib number"""
-        phi = 0.5 + 0.5 * math.sqrt(5.0)
-        a = phi * n
+        a = (0.5 + 0.5 * sqrt(5.0)) * n
         return n == 0 or abs(round(a) - a) < 1.0 / n
 
     if len(data) < 3:
