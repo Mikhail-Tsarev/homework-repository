@@ -20,11 +20,3 @@ def check_sum_of_four(
         if sum(nums) == 0:
             count += 1
     return count
-
-
-if __name__ == "__main__":
-    a = []
-    b = []
-    c = []
-    d = []
-    print(check_sum_of_four(a, b, c, d))
