@@ -15,7 +15,7 @@ def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     lst = []
     with open(file_name) as fi:
         for line in fi:
-            if line == "\n":
+            if line == "\n" or line == "\t":
                 continue
             lst.append(int(line.strip()))
     return min(lst), max(lst)
