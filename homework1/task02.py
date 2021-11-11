@@ -20,7 +20,8 @@ def check_fibonacci(data: Sequence[int]) -> bool:
     if len(data) < 3:
         return False
 
-    # Check if the first and the second ints in a sequence are fib numbers, because if not we no need to continue
+    # Check if the first and the second ints in a sequence
+    # are fib numbers, because if not we no need to continue
     if not is_fib_num(data[0]) or not is_fib_num(data[1]):
         return False
 
