@@ -12,10 +12,16 @@ from typing import Sequence
 
 
 def check_fibonacci(data: Sequence[int]) -> bool:
-    """Check if a sequence of integers is a Fibonacci sequence"""
+    """Check if a sequence of integers is a Fibonacci sequence
+    :param data: Sequence[int]
+    :return: bool
+    """
 
     def is_fib_num(n: int) -> bool:
-        """Check if number is a Fib number"""
+        """Check if number is a Fib number
+        :param n: int
+        :return: bool
+        """
         a = (0.5 + 0.5 * sqrt(5.0)) * n
         return n == 0 or abs(round(a) - a) < 1.0 / n
 

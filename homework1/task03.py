@@ -15,7 +15,10 @@ from typing import Tuple
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
     """Function reads input line-by-line,
-    and find maximum and minimum values"""
+    and find maximum and minimum values
+    :param file_name: str
+    :return: Tuple[int, int]
+    """
 
     lst = []
     with open(file_name) as fi:
