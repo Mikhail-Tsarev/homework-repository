@@ -14,10 +14,12 @@ from typing import Tuple
 
 
 def find_maximum_and_minimum(file_name: str) -> Tuple[int, int]:
-    """Function reads input line-by-line,
+    """
+    Function reads input line-by-line,
     and find maximum and minimum values
-    :param file_name: str
-    :return: Tuple[int, int]
+
+    :param file_name: Filename to process
+    :return: Min and max values
     """
 
     lst = []

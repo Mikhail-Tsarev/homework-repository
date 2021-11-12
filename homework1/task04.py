@@ -14,13 +14,15 @@ from typing import List
 def check_sum_of_four(
     a: List[int], b: List[int], c: List[int], d: List[int]
 ) -> int:
-    """Counts how many tuples (i, j, k, l) there are such
+    """
+    Counts how many tuples (i, j, k, l) there are such
     that A[i] + B[j] + C[k] + D[l] is zero
-    :param a: List[int]
-    :param b: List[int]
-    :param c: List[int]
-    :param d: List[int]
-    :return: int
+
+    :param a: List to process
+    :param b: List to process
+    :param c: List to process
+    :param d: List to process
+    :return: Number of tuples with zero sum
     """
 
     count = 0
