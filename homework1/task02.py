@@ -42,9 +42,7 @@ def check_fibonacci(data: Sequence[int]) -> bool:
     # for 2 nums sequence case
     if len(data) == 2:
         x = data[1] - data[0]
-        if x <= data[0] and is_fib_num(x):
-            return True
-        return False
+        return x <= data[0] and is_fib_num(x)
 
     # for other cases
     while len(data) > 2:
