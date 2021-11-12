@@ -20,3 +20,10 @@ def test_short_list_case2():
     nums = [1, 2, -1]
     k = 5
     assert find_maximal_subarray_sum(nums, k) == 3
+
+
+def test_empty_list_case():
+    """test len(nums) == 0  case"""
+    nums = []
+    k = 5
+    assert find_maximal_subarray_sum(nums, k) == "Invalid input: empty list"
