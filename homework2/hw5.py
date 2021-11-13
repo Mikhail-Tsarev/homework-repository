@@ -10,11 +10,11 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2) == ['p', 'n', 'l', '
 """
 
 import string
-from typing import Any, Iterable, List
+from typing import Any, List, Sequence
 
 
 def custom_range(
-    iterables: Iterable[Any],
+    iterables: Sequence,
     stop_val: Any,
     start_val: Any = None,
     step: int = 1,
@@ -44,4 +44,3 @@ print(custom_range(string.ascii_lowercase, "p", "g", -2))
 print(custom_range((11, 22, 33, 44, 55, 66, 77, 88, 99), 22, 77))
 print(custom_range((11, 22, 33, 44, 55, 66, 77, 88, 99), 77))
 print(custom_range((11, 22, 33, 44, 55, 66, 77, 88, 99), 22, 77, 2))
-s = {1: "aa", 2: "bb", 3: "ff"}
