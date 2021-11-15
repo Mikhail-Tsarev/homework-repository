@@ -10,23 +10,35 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2) == ['p', 'n', 'l', '
 """
 
 import string
-from typing import Any, List, Sequence
+from io import TextIOWrapper
+from typing import Any, Iterable, List
 
 
 def custom_range(
-    iterables: Sequence,
+    iterables: Iterable[Any],
     stop_val: Any,
     start_val: Any = None,
     step: int = 1,
 ) -> List:
     """
+    Function accepts any iterable as input data and
+    any element from that iterable as a stop value.
+    Optional arguments are start value and step.
+    Returns processed list of elements.
 
     :param iterables: Input data
     :param stop_val: Element in iterables to stop before
     :param start_val: Element in iterables to begin with
     :param step: Sequence step
-    :return: The resulting list
+    :return: Resulting list
     """
+    if type(iterables) is dict:
+        iterables = list(iterables)
+
+    if type(iterables) is TextIOWrapper:
+        iterables = [
+            line.strip() for line in iterables.readlines() if line != "\n"
+        ]
 
     if not start_val:
         stop = iterables.index(stop_val)
@@ -36,11 +48,3 @@ def custom_range(
     start = iterables.index(start_val)
     stop = iterables.index(stop_val)
     return list(iterables[start:stop:step])
-
-
-print(custom_range(string.ascii_lowercase, "g"))
-print(custom_range(string.ascii_lowercase, "g", "p"))
-print(custom_range(string.ascii_lowercase, "p", "g", -2))
-print(custom_range((11, 22, 33, 44, 55, 66, 77, 88, 99), 22, 77))
-print(custom_range((11, 22, 33, 44, 55, 66, 77, 88, 99), 77))
-print(custom_range((11, 22, 33, 44, 55, 66, 77, 88, 99), 22, 77, 2))
