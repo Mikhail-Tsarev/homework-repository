@@ -22,11 +22,28 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
 
 
 def get_rarest_char(file_path: str) -> str:
-    pass
+    counter = dict()
+    chars = []
+    with open(file_name, encoding="unicode_escape") as fi:
+        for line in fi:
+            chars.extend(
+                [x for x in re.sub("[‹›<>!@#$\n-.,?'’`]", "", line.lower())]
+            )
+    for char in chars:
+        counter[char] = counter.get(char, 0) + 1
+    sorted_counter = sorted(counter, key=counter.get)
+    return sorted_counter[0]
 
 
 def count_punctuation_chars(file_path: str) -> int:
-    pass
+    punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
+    counter = dict()
+    pu_list = []
+    with open(file_name, encoding="unicode_escape") as fi:
+        pu_list = [char for line in fi for char in line if char in punctuation]
+    for char in pu_list:
+        counter[char] = counter.get(char, 0) + 1
+    print(counter)
 
 
 def count_non_ascii_chars(file_path: str) -> int:
@@ -37,4 +54,6 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
     pass
 
 
-print(get_longest_diverse_words(file_name))
+# print(get_longest_diverse_words(file_name))
+# print(get_rarest_char(file_name))
+count_punctuation_chars(file_name)
