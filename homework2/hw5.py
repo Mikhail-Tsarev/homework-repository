@@ -12,7 +12,6 @@ assert = custom_range(string.ascii_lowercase, 'p', 'g', -2)
 == ['p', 'n', 'l', 'j', 'h']
 """
 
-import string
 from io import TextIOWrapper
 from typing import Any, Iterable, List
 
