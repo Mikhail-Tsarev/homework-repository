@@ -12,30 +12,16 @@ number in functionaly style:
  - use anonymous functions (or use function as argument)
  - do not use loops, preferably using list comprehensions
 """
-from functools import reduce
 
 
 def is_armstrong(number: int) -> bool:
+    """
+    Function checks if a number is an Armstrong number
+
+    :param number: Number to check
+    :return: Is an Armstrong number
+    """
+
     digits = [int(x) for x in str(number)]
-    power = len(digits)
-    total = sum([x ** power for x in digits])
+    total = sum([x ** len(digits) for x in digits])
     return total == number
-
-
-def is_armstrong_v2(number: int) -> bool:
-    digits = [int(x) for x in str(number)]
-    power = len(digits)
-    get_power = lambda a: a ** power
-    digits = map(get_power, digits)
-    get_sum = lambda a, b: a + b
-    total = reduce(get_sum, digits)
-    return total == number
-
-
-assert is_armstrong(153) is True, "Is Armstrong number"
-assert is_armstrong(10) is False, "Is not Armstrong number"
-
-print(is_armstrong(10))
-print(is_armstrong(153))
-print(is_armstrong_v2(10))
-print(is_armstrong_v2(153))
