@@ -1,2 +1,3 @@
 # Tsarev Mikhail's homework-repository
-## for EPAM python training homework
+## for EPAM Python training course
+### -- Autumn 2021 --
