@@ -28,4 +28,4 @@ def multi_process_func(
 
     with mp.Pool(pools) as pool:
         result = sum(pool.map(func, func_arg))
-    return result
+        return result
