@@ -26,6 +26,6 @@ def multi_process_func(
     :return: Sum of parallel calculation
     """
 
-    pool = mp.Pool(pools)
-    result = pool.map(func, func_arg)
-    return sum(result)
+    with mp.Pool(pools) as pool:
+        result = sum(pool.map(func, func_arg))
+    return result
