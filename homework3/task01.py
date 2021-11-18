@@ -2,38 +2,34 @@ from functools import wraps
 from typing import Callable
 
 
-def cache(func: Callable, times: int = None) -> Callable:
-    """
-    Returns function with cache and
-    'times' times only
+def cashe_times(times: int = None) -> Callable:
+    def cache(func: Callable) -> Callable:
+        cache_data = {}
+        t = times + 1
 
-    :param times:
-    :param func: Function for caching
-    :return: Function with caching
-    """
+        @wraps(func)
+        def wrapper(*args):
+            nonlocal t
+            if times is not None:
+                t -= 1
+                if t == 0:
+                    del cache_data[args]
+                    t = times
 
-    cache_data = {}
-    i = times
-
-    @wraps(func)
-    def wrapper(*args):
-        nonlocal i
-        if i:
-            i -= 1
             if args not in cache_data:
                 cache_data[args] = func(*args)
-                del cache_data[args]
-            i = times - 1
             return cache_data[args]
-        return cache_data[args]
 
-    return wrapper
+        return wrapper
+
+    return cache
 
 
 if __name__ == "__main__":
 
-    @cache(times=2)
+    @cashe_times(3)
     def f():
         return input("? ")
 
-    f()
+    for i in range(10):
+        print(f())
