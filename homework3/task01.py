@@ -12,22 +12,20 @@ def cache(func: Callable, times: int = None) -> Callable:
     :return: Function with caching
     """
 
-    _cache = {}
+    cache_data = {}
     i = times
 
     @wraps(func)
     def wrapper(*args):
         nonlocal i
-        try:
-            if i:
-                i -= 1
-                return _cache[args]
-            del _cache[args]
+        if i:
+            i -= 1
+            if args not in cache_data:
+                cache_data[args] = func(*args)
+                del cache_data[args]
             i = times - 1
-            return _cache[args]
-        except KeyError:
-            _cache[args] = func(*args)
-            return _cache[args]
+            return cache_data[args]
+        return cache_data[args]
 
     return wrapper
 
