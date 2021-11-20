@@ -1,6 +1,6 @@
 import pytest
 
-from homework3.task03 import Filter, make_filter
+from homework3.task03 import make_filter
 
 sample_data = [
     {
