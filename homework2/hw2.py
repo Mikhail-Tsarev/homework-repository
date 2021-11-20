@@ -26,8 +26,3 @@ def major_and_minor_elem(inp: List) -> Tuple[int, int]:
     counter = Counter(inp)
     el_in_order = counter.most_common()
     return el_in_order[0][0], el_in_order[-1][0]
-
-
-if __name__ == "__main__":
-    lst = [-2, -2, -1, -1, -1, -1, -1, -1, -2, -2]
-    print(major_and_minor_elem(lst))

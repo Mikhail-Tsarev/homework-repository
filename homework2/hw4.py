@@ -23,14 +23,12 @@ def cache(func: Callable) -> Callable:
     :param func: Function for caching
     :return: Function with caching
     """
-    _cache = {}
+    cache_data = {}
 
     @wraps(func)
     def wrapper(*args):
-        try:
-            return _cache[args]
-        except KeyError:
-            _cache[args] = func(*args)
-            return _cache[args]
+        if args not in cache_data:
+            cache_data[args] = func(*args)
+        return cache_data[args]
 
     return wrapper

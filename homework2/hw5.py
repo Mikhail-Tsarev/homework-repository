@@ -34,10 +34,10 @@ def custom_range(
     :param step: Sequence step
     :return: Resulting list
     """
-    if type(iterables) is dict:
+    if isinstance(iterables, dict):
         iterables = list(iterables)
 
-    if type(iterables) is TextIOWrapper:
+    if isinstance(iterables, TextIOWrapper):
         iterables = [
             line.strip() for line in iterables.readlines() if line != "\n"
         ]
