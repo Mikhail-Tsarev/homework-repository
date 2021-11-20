@@ -25,7 +25,7 @@ def get_longest_diverse_words(file_path: str) -> List[str]:
     """
 
     words = set()
-    with open(file_path, encoding="unicode_escape") as fi:
+    with open(file_path, encoding="unicode_escape", errors="ignore") as fi:
         for line in fi:
             words.update(re.findall(r"\w+", line.lower()))
     longest_ten = sorted(
@@ -48,7 +48,7 @@ def get_rarest_char(file_path: str) -> str:
 
     counter = {}
     chars = []
-    with open(file_path, encoding="unicode_escape") as fi:
+    with open(file_path, encoding="unicode_escape", errors="ignore") as fi:
         for line in fi:
             chars.extend([x for x in line.lower() if x not in punctuation])
     for char in chars:
@@ -70,7 +70,7 @@ def count_punctuation_chars(file_path: str) -> int:
     punctuation = set(c for c in punc_u if category(c).startswith("P"))
 
     counter = 0
-    with open(file_path, encoding="unicode_escape") as fi:
+    with open(file_path, encoding="unicode_escape", errors="ignore") as fi:
         for line in fi:
             for char in line:
                 if char in punctuation:
@@ -91,7 +91,7 @@ def count_non_ascii_chars(file_path: str) -> int:
     ascii_chars = "".join(chr(c) for c in range(128))
 
     counter = 0
-    with open(file_path, encoding="unicode_escape") as fi:
+    with open(file_path, encoding="unicode_escape", errors="ignore") as fi:
         for line in fi:
             for char in line:
                 if char not in ascii_chars:
@@ -117,7 +117,7 @@ def get_most_common_non_ascii_char(file_path: str) -> str:
 
     counter = {}
     chars = []
-    with open(file_path, encoding="unicode_escape") as fi:
+    with open(file_path, encoding="unicode_escape", errors="ignore") as fi:
         for line in fi:
             chars.extend(
                 [
