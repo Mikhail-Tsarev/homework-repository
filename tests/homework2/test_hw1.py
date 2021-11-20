@@ -39,7 +39,7 @@ def test_func_3():
 def test_func_4():
     """Testing that function 4 returns
     right answer"""
-    result = 2971
+    result = 2972
     assert hw1.count_non_ascii_chars(file_name) == result
 
 
