@@ -66,9 +66,6 @@ def test_teacher_create_homework():
     """Testing that teacher.create_homework()
     works properly"""
 
-    hw_creation_time = datetime.datetime.now()
     hw4 = teacher1.create_homework("The Price of Conscience", 33)
-    delta = hw_creation_time - hw4.created
     assert hw4.text == "The Price of Conscience"
     assert hw4.deadline == datetime.timedelta(33)
-    assert delta.seconds < 10
