@@ -71,4 +71,4 @@ def test_teacher_create_homework():
     delta = hw_creation_time - hw4.created
     assert hw4.text == "The Price of Conscience"
     assert hw4.deadline == datetime.timedelta(33)
-    assert delta.mi < 10
+    assert delta.seconds < 10
