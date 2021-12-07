@@ -27,7 +27,7 @@ def test_3_instances():
 
     user, _, _ = User2(), User2(), User2()
 
-    assert User2.get_created_instances() == 3
+    assert user.get_created_instances() == 3
 
 
 def test_reset_counter():
@@ -40,6 +40,6 @@ def test_reset_counter():
         pass
 
     user, _, _ = User3(), User3(), User3()
-    before_reset_value = User3.reset_instances_counter()
+    before_reset_value = user.reset_instances_counter()
 
-    assert before_reset_value == 3 and User3.get_created_instances() == 0
+    assert before_reset_value == 3 and user.get_created_instances() == 0
