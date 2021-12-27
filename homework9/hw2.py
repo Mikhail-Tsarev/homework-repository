@@ -11,9 +11,7 @@ class Suppressor:
         pass
 
     def __exit__(self, exctype, value, traceback):
-        if exctype == self.exception:
-            return True
-        return False
+        return exctype == self.exception
 
 
 @contextmanager
