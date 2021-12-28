@@ -89,7 +89,7 @@ def get_company_data(company_page, main_url, usd_rate):
             .parent.text.strip()
             .split("\r")[0]
         )
-    except:
+    except AttributeError:
         pe = float("inf")
 
     try:
