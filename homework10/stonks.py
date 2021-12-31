@@ -127,7 +127,6 @@ def get_company_data(company_page, main_url, usd_rate):
             continue
         else:
             soup = BeautifulSoup(p, "lxml")
-            # hrf = "/stocks/" + code.lower() + "-stock"
             growth = (
                 soup.find("a", title=name)
                 .parent.parent.select("span:last-child")[-1]
