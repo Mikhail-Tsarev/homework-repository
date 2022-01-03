@@ -2,13 +2,8 @@ import datetime
 
 import pytest
 
-from homework6.oop_2 import (
-    DeadlineError,
-    Homework,
-    HomeworkResult,
-    Student,
-    Teacher,
-)
+from homework6.oop_2 import (DeadlineError, Homework, HomeworkResult, Student,
+                             Teacher)
 
 # constants:
 good_student = Student("Petrov", "Ivan")
