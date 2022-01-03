@@ -11,5 +11,7 @@ def read_magic_number(path: str) -> bool:
         with open(path) as fi:
             num = float(fi.readline().strip())
             return 1 <= num < 3
-    except BaseException:
-        raise ValueError
+    except ValueError:
+        raise ValueError("Value error")
+    except FileNotFoundError:
+        raise FileNotFoundError("File not found error")
