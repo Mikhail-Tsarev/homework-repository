@@ -1,3 +1,4 @@
+from urllib.error import URLError
 from urllib.request import urlopen
 
 
@@ -12,5 +13,5 @@ def count_dots_on_i(url: str) -> int:
         with urlopen(url) as response:
             html = response.read().decode("utf-8")
             return html.count("i")
-    except ValueError:
+    except URLError:
         raise ValueError(f"Unavailable {url}")
