@@ -7,7 +7,7 @@ from homework4.task02 import count_dots_on_i
 
 class FakeResponse:
     status_code = 200
-    content = "<body>i never forget about i</body>"
+    content = "b'<body>i never forget about i</body>"
 
     def read(self):
         return self.content.encode()

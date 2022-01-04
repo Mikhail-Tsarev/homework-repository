@@ -3,6 +3,10 @@ from typing import List
 
 def fizzbuzz(n: int) -> List[str]:
     """Return list of n FizzBuzz numbers, n is an exact integer
+
+    :param n: Integer, end of the list
+    :return: List with results
+
     >>> fizzbuzz(5)
     [1, 2, 'fizz', 4, 'buzz']
     >>> fizzbuzz(15) # doctest: +NORMALIZE_WHITESPACE
