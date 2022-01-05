@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from typing import Any
 
@@ -7,7 +8,7 @@ class TableData(dict):
 
     Attributes
     ----------
-    db_name: path (name) of the database
+    db_name: Name of the database
     table_name: Name of the table
 
     Methods
@@ -19,8 +20,8 @@ class TableData(dict):
     __iter__: Returns iterator object for request result
     """
 
-    def __init__(self, db_name, table_name):
-        self.conn = sqlite3.connect(db_name)
+    def __init__(self, db_name: str, table_name: str):
+        self.conn = sqlite3.connect(os.getcwd() + db_name)
         self.conn.row_factory = sqlite3.Row
         self.table = table_name
         self.cursor = self.conn.cursor()
