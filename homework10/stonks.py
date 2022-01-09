@@ -273,6 +273,7 @@ ALL_COMPANIES_DATA = []
 
 # MAIN
 def main():
+    """Main parsing process"""
 
     url = "https://markets.businessinsider.com/index/components/s&p_500"
     usd = get_usd_rate()
@@ -280,12 +281,13 @@ def main():
     pool = Pool(pool_size)
     main_page = get_main_page_link(url, ".com")
 
+    print("Start working...")
     for page in get_pages_list(url, main_page):
         soup = get_soup(page)
         ALL_COMPANIES_DATA.extend(
             [
-                {"link": l, "growth": g}
-                for l, g in zip(get_links(soup), get_growth(soup))
+                {"link": link, "growth": growth}
+                for link, growth in zip(get_links(soup), get_growth(soup))
             ]
         )
         print("|", end=" ")
@@ -294,6 +296,7 @@ def main():
         f"Collected {len(ALL_COMPANIES_DATA)} companies for further processing"
     )
 
+    print("Parsing data...")
     for d in ALL_COMPANIES_DATA:
         pool.apply_async(append_company_data, (d, main_page, usd))
     pool.close()
@@ -301,6 +304,7 @@ def main():
     time.sleep(4)
     print()
     print("All data processed")
+    print()
 
     top_10_by_price = get_clear_data(top_ten(ALL_COMPANIES_DATA, "price"))
     top_10_by_low_pe = get_clear_data(
