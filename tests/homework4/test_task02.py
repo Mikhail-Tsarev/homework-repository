@@ -20,7 +20,7 @@ def test_count_dots_on_i():
     """Testing i counter using fake response"""
     fake_response = FakeResponse()
 
-    with patch("urllib.request.urlopen") as mock_urlopen:
+    with patch("homework4.task02.urlopen") as mock_urlopen:
         mock_urlopen.return_value = fake_response
         assert count_dots_on_i("https://google.com/") == 2
 
