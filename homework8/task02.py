@@ -21,6 +21,12 @@ class TableData(dict):
     """
 
     def __init__(self, db_name: str, table_name: str):
+        """Sets all required attrs
+
+        db_name: Name of the database
+        table_name: Name of the table
+        """
+
         self.conn = sqlite3.connect(os.getcwd() + db_name)
         self.conn.row_factory = sqlite3.Row
         self.table = table_name
