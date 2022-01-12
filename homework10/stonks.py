@@ -119,7 +119,7 @@ def get_company_data(link: str, main_page: str, usd: float) -> dict:
     try:
         pe = (
             data.find("div", text=re.compile("P/E Ratio"))
-            .parent.text.split("\r")[1]
+            .parent.text.split("\n")[1]
             .strip()
             .replace(",", "")
         )
@@ -129,7 +129,7 @@ def get_company_data(link: str, main_page: str, usd: float) -> dict:
     try:
         low_52 = (
             data.find("div", text=re.compile("52 Week Low"))
-            .parent.text.split("\r")[1]
+            .parent.text.split("\n")[1]
             .strip()
             .replace(",", "")
         )
@@ -139,7 +139,7 @@ def get_company_data(link: str, main_page: str, usd: float) -> dict:
     try:
         high_52 = (
             data.find("div", text=re.compile("52 Week High"))
-            .parent.text.split("\r")[1]
+            .parent.text.split("\n")[1]
             .strip()
             .replace(",", "")
         )
